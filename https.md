@@ -28,5 +28,27 @@ HTTPS na MikroTiku
 
 ```/ip service set www-ssl certificate=my-rtr```
 
+**6.** Vypíšeme dostupné IP služby a jejich status:
+
+```/ip service print```
+
+```
+Flags: X - disabled, I - invalid
+ #   NAME                                                 PORT ADDRESS                                                                                   CERTIFICATE
+ ...
+ 4 XI www-ssl                                               443                                                                                           my-rtr
+...
+```
+
+**6.** Jak je vidět výše, služba ```www-ssl``` není zatím spuštěna, proto ji nyní spustíme příkazem:
+
+```/ip service enable 4```
+
+Výsledek:
+```
+ 4   www-ssl                                               443                                                                                           my-rtr
+
+```
+
 ### Zdroj
 - https://blog.a2o.si/2015/08/11/mikrotik-how-to-generate-ssl-certificate-and-enable-https/
