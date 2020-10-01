@@ -1,17 +1,17 @@
 HTTPS na MikroTiku
 ====
 
-**1.** Vytvoření certifikátu vlastní certifikační autority (CA certifikát):
+**1.** Vytvoření certifikátu vlastní certifikační autority (CA certifikát, platnost 10 let):
 
-```/certificate add name=my-rtr-ca common-name=my-rtr-ca key-usage=key-cert-sign,crl-sign```
+```/certificate add name=my-rtr-ca common-name=my-rtr-ca key-usage=key-cert-sign,crl-sign key-size=2048 days-valid=3650```
 
 **2.** Tento certifikát si podepíšeme:
 
 ```/certificate sign my-rtr-ca```
 
-**3.** Vytvoření certifikátu pro užití s HTTPS:
+**3.** Vytvoření certifikátu pro užití s HTTPS (platnost 10 let):
 
-```/certificate add name=my-rtr common-name=my-rtr key-usage=tls-server```
+```/certificate add name=my-rtr common-name=my-rtr key-usage=tls-server key-size=2048 days-valid=3650```
 
 **4.** I tento certifikát podepíšeme, tentokrát CA certifikátem z kroku 1 a 2:
 
